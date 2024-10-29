@@ -1,0 +1,155 @@
+
+body {
+  background-image: url('/images/intro.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  flex-direction: column;
+}
+
+/* Back button styling */
+.back-btn {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #000;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.back-btn-2{
+  top: 25px;
+}
+
+.back-btn .arrow {
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+/* back-btn animation*/
+@keyframes slideBackBtn{
+  0%{
+    top: 10px;
+    opacity: 0.7;
+  }
+  50%{
+    top:0px;
+    opacity: 0.7;
+  }
+
+  90%{
+    top:0px;
+    opacity: 0.7;
+  }
+
+  100%{
+    top:-20px;
+    opacity: 0;
+  }
+}
+
+@keyframes slideBackBtn2{
+  0%{
+    top: 20px;
+    opacity: 0.7;
+  }
+  50%{
+    top:20px;
+    opacity: 0.7;
+  }
+
+  90%{
+    top:0px;
+    opacity: 0.7;
+  }
+
+  100%{
+    top:-20px;
+    opacity: 0;
+  }
+}
+
+.back-btn{
+  animation-name: slideBackBtn;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.back-btn-2{
+  animation-name: slideBackBtn2;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* White background for question and answer */
+.question-box {
+  background-color: rgba(255, 255, 255, 0.9);;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Question text styling */
+.question-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #a2201c;
+}
+
+/* Answer option styling */
+.list-group-item {
+  
+  font-size: 1.25rem;
+  /* border: 1px solid #a2201c; */
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Pagination text centered at the bottom */
+.pagination-text {
+  font-size: 1.25rem;
+  color: #a2201c;
+  position: relative;
+  background-color: transparent;
+    border: 1px solid white;
+    border-radius: 25px;
+    color: white;
+    padding: 5px 20px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .question-text {
+    font-size: 1.25rem!important;
+  }
+
+  .list-group-item {
+    font-size: 1rem!important;;
+  }
+
+  .pagination-text {
+    font-size: 1rem!important;;
+  }
+
+  .back-btn {
+    font-size: 1.25rem!important;;
+  }
+
+  .back-btn .arrow {
+    font-size: 1.5rem!important;;
+  }
+}
+
+.option:hover{
+  /* background-color: #ededed; */
+  /* border-radius: 10px; */
+}
+

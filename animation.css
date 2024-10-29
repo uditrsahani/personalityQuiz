@@ -1,0 +1,14 @@
+/* Define swipe-up animation */
+@keyframes swipeUpAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+/* Add swipe-up animation only to elements with this additional class */
+.trigger-swipe-up {
+  animation: swipeUpAnimation 0.6s forwards;
+}

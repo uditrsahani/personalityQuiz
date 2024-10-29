@@ -1,0 +1,107 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.background-image-result {
+  background-image: url("/questionImages/q9.jpg");
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.8;
+}
+
+.content-container-result {
+  position: relative;
+  z-index: 2;
+}
+
+.white-box {
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.black-text {
+  color: #000;
+}
+
+.refrigerator-image {
+  max-height: 400px;
+}
+
+.accordion-button {
+  background-color: #b32d2e;
+  color: white;
+}
+
+.accordion-button:hover {
+  background-color: #d94545;
+}
+
+.accordion-body button {
+  background-color: #b32d2e;
+  color: white;
+}
+
+.accordion-body{
+  max-height: 500px;
+}
+
+/* .accordion-body button:hover {
+  background-color: #d94545;
+}
+
+@media screen and (min-width: 992px) {
+  .white-box {
+    margin-top: 2.8rem !important;
+  }
+
+  .accordion {
+    margin-top: 2.8rem !important;
+  }
+} */
+
+/* Scrollable left result div */
+.scrollable-div {
+  overflow-y: auto; /* Enable vertical scrollbar when content overflows */
+  
+  padding: 10px;
+}
+
+
+ /* Custom CSS for vertical alignment */
+ .content-container-result {
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+.scrollable-div {
+  max-height: 800px;
+  overflow-y: auto;
+}
+.refrigerator-image {
+  max-width: 100%;
+  height: auto;
+}
+.white-box {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.black-text {
+  color: #333;
+}
+
+#result-container{
+  margin-top: 13rem !important
+}

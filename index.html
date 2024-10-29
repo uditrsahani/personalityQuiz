@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- font Start-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font end -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discover Your Inner Home Comfort</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="question.css" />
+    <link rel="stylesheet" href="result.css" />
+
+    <style>
+      * {
+        font-family: Roboto;
+      }
+    </style>
+  </head>
+
+  <body id="bodyId">
+    <!-- Section 1: Mobile Menu-->
+    <div
+      class="header mobileMenu hideSectionOne"
+      id="section1MobileMenu"
+      style="visibility: hidden"
+    >
+      <p class="mobile-discover-your-inner">
+        <span class="highlight">Discover</span> your inner
+      </p>
+      <br />
+      <div class="mobile-menu-red-bar"></div>
+      <p class="mobile-home-comfort">
+        Home <span class="higlight">Comfort</span>
+      </p>
+    </div>
+
+    <!-- Section 1: Computer Menu -->
+    <div
+      style=""
+      id="section1ComputerMenu"
+      class="header large computerMenu"
+      id="header"
+    >
+      <div class="title">
+        Discover your <br /><span
+          >Inner Home <span class="highlight">Comfort</span></span
+        >
+      </div>
+      <div class="red-bar"></div>
+    </div>
+
+    <!-- Section 2: Mobile Menu-->
+    <div
+      style="display: none; visibility: hidden"
+      id="section2MobileMenu hideSecondSection"
+      class="header mobileMenu"
+      style=""
+    >
+      <div class="section-2-title">How to play</div>
+      <div class="red-bar-section-2 left-bar" style="top: 3.25rem"></div>
+      <div class="red-bar-section-2 right-bar" style="top: 3.25rem"></div>
+    </div>
+
+    <!-- Section 2: Computer Menu -->
+    <div
+      style="display: none"
+      id="section2ComputerMenu"
+      class="header large computerMenu hideSecondSection"
+      id="header"
+    >
+      <div class="section-2-title">How to play</div>
+      <div class="red-bar-section-2 left-bar" style="top: 3.25rem"></div>
+      <div class="red-bar-section-2 right-bar" style="top: 3.25rem"></div>
+    </div>
+
+    <!-- Section 1: Main Content Container -->
+    <div id="firstContainer" class="container-content">
+      <p>
+        After a long week, nothing beats coming home to unwind. Your appliances
+        are always there, working behind the scenes to make your life one with
+        ease. But have you ever wondered which appliance matches your
+        personality?
+      </p>
+      <p>Take this quick, fun quiz to find out!</p>
+    </div>
+
+    <!-- Section 2: Main Content Container -->
+    <div
+      style="display: none"
+      id="secondContainer"
+      class="container-content hideSecondSection"
+    >
+      <p>
+        You’ll follow a short story through a narrative that spans from Friday
+        evening to Saturday noon, highlighting moments at home.
+      </p>
+      <p>
+        Answer each question based on what feels most like you. There are no
+        right or wrong answers—just your personal style!
+        <br />
+        <span style="color: #a2201c">Let’s get started!</span>
+      </p>
+    </div>
+
+    <!--Section 1: Button-->
+    <button class="btn-start" id="nextBtn" onclick="firstSection()">
+      Next
+    </button>
+
+    <!--Section 2: Button-->
+    <button
+      style="display: none"
+      class="btn-start hideSecondSection"
+      id="startBtn"
+      onclick="secondSection()"
+    >
+      Start
+    </button>
+
+    <!--Question UI: Back button -->
+    <div 
+      id="id_question_back_btn"
+      onclick="backButton()"
+      class="container-fluid text-center mt-3 hideQuestionUI"
+    >
+      <!-- <a href="#" class="back-btn arrow">&#8593;
+    </a> -->
+      <img id="arrow1" class="back-btn arrow" src="./images/back-arrow.svg" height="20px" />
+      <img id="arrow2"
+        class="back-btn arrow back-btn-2"
+        src="./images/back-arrow.svg"
+        height="20px"
+      />
+    </div>
+
+    <!--Question UI: Main Content -->
+    <div class="container my-5 question-box hideQuestionUI">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <h2 id="questionText" class="question-text">
+            You step through the door after a week filled with exciting projects
+            and adventures. The comforting scent of home brings an instant sense
+            of calm. What’s on your mind as you step into your Home Sweet Home?
+          </h2>
+        </div>
+      </div>
+
+      <!-- Answer options in two columns -->
+      <div id="id_answer_options" class="row justify-content-center mt-4">
+        <div class="col-12 col-lg-8">
+          <div class="row">
+            <div class="option col-12 col-md-6">
+              <label
+                id="option1Text"
+                class="list-group-item optionLabel"
+                onclick="nextQuestion(event)"
+              >
+                I can't wait to grab a snack and indulge a little.
+              </label>
+            </div>
+            <div class="option col-12 col-md-6">
+              <label
+                id="option2Text"
+                class="list-group-item optionLabel"
+                onclick="nextQuestion(event)"
+              >
+                Time to kick off my shoes and get into something cozy.
+              </label>
+            </div>
+            <div class="option col-12 col-md-6 mt-3">
+              <label
+                id="option3Text"
+                class="list-group-item optionLabel"
+                onclick="nextQuestion(event)"
+              >
+                I'll just take a deep breath and soak in this moment.
+              </label>
+            </div>
+            <div id="option4" class="option col-12 col-md-6 mt-3">
+              <label
+                id="option4Text"
+                class="list-group-item optionLabel"
+                onclick="nextQuestion(event)"
+              >
+                Let me check my phone—what did I miss today?
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Question UI: Pagination (Counter) -->
+    <div class="container-fluid text-center fixed-bottom mb-3 hideQuestionUI">
+      <button id="pagination" class="pagination-text">1 of 10</button>
+    </div>
+
+    <!--Result Menu-->
+    <div
+      style="display: none"
+      id="section2ComputerMenu"
+      class="header large computerMenu hideResultSection"
+      id="header"
+    >
+      <div class="section-2-title" id="resultTitle">Refrigerator</div>
+      <div class="red-bar-section-2 left-bar" style="top: 3.25rem"></div>
+      <div class="red-bar-section-2 right-bar" style="top: 3.25rem"></div>
+    </div>
+    <!--Result Background Image-->
+    <div
+      class="background-image-result hideResultSection"
+      style="display: none"
+    ></div>
+    <!-- Background Image -->
+    <!--Result Section-->
+    <div
+      class="content-container-result hideResultSection"
+      style="display: none"
+    >
+      <div class="container my-5" id="result-container">
+        <div class="row">
+          <!-- Left Box with Text -->
+          <div class="col-lg-4 col-md-12 col-sm-12 scrollable-div">
+            <div class="white-box p-4">
+              <p class="black-text" id="resultDescription">
+                Congratulations! Just like a refrigerator, you are all about
+                keeping things fresh and organized. Your knack for preserving
+                the quality of ingredients makes meal preparation effortless,
+                allowing you to whip up delightful dishes whenever inspiration
+                strikes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Middle Section with Image -->
+          <!-- <div class="col-lg-4 col-md-12 col-sm-12 text-center my-3">
+            <img 
+              src="/images/ref-1.png"
+              alt="Refrigerator"
+              class="img-fluid refrigerator-image"
+            />
+          </div> -->
+
+          
+          
+          <!--Refrigerator Slider-->
+<div id="refrigerator-slider" class="col-lg-4 col-md-12 col-sm-12 text-center my-3">
+  <div id="refrigeratorCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/images/ref-1.png" alt="Refrigerator 1" class="img-fluid refrigerator-image" />
+      </div>
+      <div class="carousel-item">
+        <img src="/images/ref-2.png" alt="Refrigerator 2" class="img-fluid refrigerator-image" />
+      </div>
+      <div class="carousel-item">
+        <img src="/images/ref-3.png" alt="Refrigerator 3" class="img-fluid refrigerator-image" />
+      </div>
+    </div>
+    <!-- Carousel controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#refrigeratorCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#refrigeratorCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<!--Washing Machine Slider-->
+<div id="washingMachine-slider" class="col-lg-4 col-md-12 col-sm-12 text-center my-3">
+  <div id="washingMachineCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/images/washing-machine-1.png" alt="Washing Machine 1" class="img-fluid refrigerator-image" />
+      </div>
+      <div class="carousel-item">
+        <img src="/images/washing-machine-2.png" alt="Washing Machine 2" class="img-fluid refrigerator-image" />
+      </div>
+      <!-- <div class="carousel-item">
+        <img src="/images/washing-machine-3.png" alt="Washing Machine 3" class="img-fluid refrigerator-image" />
+      </div> -->
+    </div>
+    <!-- Carousel controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#washingMachineCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#washingMachineCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<!--Dishwasher Slider-->
+<div id="dishwasher-slider" class="col-lg-4 col-md-12 col-sm-12 text-center my-3">
+  <div id="dishwasherCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/images/dishwasher-1.png" alt="Dishwasher 1" class="img-fluid refrigerator-image" />
+      </div>
+      <!-- <div class="carousel-item">
+        <img src="/images/dishwasher-2.jpg" alt="Dishwasher 2" class="img-fluid refrigerator-image" />
+      </div> -->
+    
+    </div>
+    <!-- Carousel controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#dishwasherCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#dishwasherCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<!--Vacuum Cleaner Slider-->
+<div id="vacuumCleaner-slider" class="col-lg-4 col-md-12 col-sm-12 text-center my-3">
+  <div id="vacuumCleanerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/images/vacuum-cleaner-1.png" alt="Vacuum Cleaner 1" class="img-fluid refrigerator-image" />
+      </div>
+      <div class="carousel-item">
+        <img src="/images/vacuum-cleaner-2.png" alt="Vacuum Cleaner 2" class="img-fluid refrigerator-image" />
+      </div>
+      <!-- <div class="carousel-item">
+        <img src="/images/vacuum-cleaner-3.jpg" alt="Vacuum Cleaner 3" class="img-fluid refrigerator-image" />
+      </div> -->
+    </div>
+    <!-- Carousel controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#vacuumCleanerCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#vacuumCleanerCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<!--Rice Cooker Slider-->
+<div id="riceCooker-slider" class="col-lg-4 col-md-12 col-sm-12 text-center my-3">
+  <div id="riceCookerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/images/rice-cooker-1.png" alt="Rice Cooker 1" class="img-fluid refrigerator-image" />
+      </div>
+      <!-- <div class="carousel-item">
+        <img src="/images/rice-cooker-2.jpg" alt="Rice Cooker 2" class="img-fluid refrigerator-image" />
+      </div>
+      <div class="carousel-item">
+        <img src="/images/rice-cooker-3.jpg" alt="Rice Cooker 3" class="img-fluid refrigerator-image" />
+      </div> -->
+    </div>
+    <!-- Carousel controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#riceCookerCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#riceCookerCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+          
+
+         
+
+          <!-- Refrigerator Accordion -->
+          <div id="accordion-refrigerator" class="col-lg-4 col-md-12 col-sm-12">
+            <div class="accordion" id="accordionExample">
+              <!-- Accordion 1 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Made in Japan
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <p style="color:#c00000"><b>Vacuum Compartment</b></p>
+                    <p>
+                      <span style="color:#c00000">Vacuum-sealed</span> | Discover the secret to longer-lasting
+                      freshness. Vacuum technology by Hitachi reduces oxygen
+                      levels to maintain 0.8 atmospheric pressure, keeping meat,
+                      fish, and dairy products fresh, and nutritious.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">Freshness Preservation</span> | Advancing food freshness with
+                      optimal storage conditions. No freezing or wrapping
+                      required. Enjoy ingredients fresher for longer.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">Nutrition Retention</span> | Increase food longevity with a
+                      vacuumed environment, preventing oxidation and supporting
+                      nutrient retention.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">Flavour Preservation</span> | Preserve food flavour and texture
+                      with ease. The Vacuum Compartment reduces oxygen levels to
+                      suppress oxidation and prevent drippage.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">Hydration</span> | The sealed structure prevents dehydration of
+                      food, resulting in the preservation of freshness and
+                      flavour even without wrapping.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">Quick Marination</span> | Vacuum technology by Hitachi reduces
+                      oxygen enabling food to be marinated faster, leaving you
+                      with more time to savour your meals.
+                    </p>
+                    <p style="color:#c00000"><b>Moisture Cooling</b></p>
+                    <p>
+                      Chills entire refrigerator compartment to retain flavour
+                      and freshness.
+                    </p>
+                    <button class="btn btn-danger me-2">Option 1</button>
+                    <button class="btn btn-danger">Option 2</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accordion 2 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    French Bottom Freezer
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <p style="color:#c00000"><b>Vacuum Compartment</b></p>
+                    <p>
+                      <span style="color:#c00000">Vacuum-sealed</span> | Discover the secret to longer-lasting
+                      freshness. Vacuum technology by Hitachi reduces oxygen
+                      levels to maintain 0.8 atmospheric pressure, keeping meat,
+                      fish, and dairy products fresh, and nutritious.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">Freshness Preservation</span> | Advancing food freshness with
+                      optimal storage conditions. No freezing or wrapping
+                      required. Enjoy ingredients fresher for longer.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">Nutrition Retention</span> | Increase food longevity with a
+                      vacuumed environment, preventing oxidation and supporting
+                      nutrient retention.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">Flavour Preservation</span> | Preserve food flavour and texture
+                      with ease. The Vacuum Compartment reduces oxygen levels to
+                      suppress oxidation and prevent drippage.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">Hydration</span> | The sealed structure prevents dehydration of
+                      food, resulting in the preservation of freshness and
+                      flavour even without wrapping.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">Quick Marination</span> | Vacuum technology by Hitachi reduces
+                      oxygen enabling food to be marinated faster, leaving you
+                      with more time to savour your meals.
+                    </p>
+                    <p style="color:#c00000"><b>Selectable Zone</b></p>
+                    <p>
+                      4 temperature settings based on your storage and lifestyle
+                      needs.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">-18°C Freeze</span> | Extra freezer storage for your convenience.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">-3°C Soft Freeze</span> | No need to defrost - Ready to cook.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">1°C Chill / Meat </span>| Ideal for diary, meat, and fresh food.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">3°C Refrigerator</span> | Additional space for food and
+                      beverages.
+                    </p>
+                    <button class="btn btn-danger me-2">Option 1</button>
+                    <button class="btn btn-danger">Option 2</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accordion 3 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    2 Door Top Freezer
+                  </button>
+                </h2>
+                <div
+                  id="collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingThree"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <p style="color:#c00000"><b>Selectable Zone</b></p>
+                    <p>
+                      Allows you to customise mode settings based on your
+                      storage and lifestyle needs.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">-3°C Soft Freeze</span> | Choose the Soft Freeze setting to keep
+                      meat and fish fresh at - 3°C; you can easily prepare
+                      portions and cook them instantly without the need to
+                      defrost.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">0°C Chill/Meat</span> | Preserve the freshness of your dairy,
+                      meat, and dry goods by storing them at an optimal
+                      temperature within the Selectable Zone compartment.
+                    </p>
+                    <p>
+                      <span style="color:#c00000">3°C Refrigerator</span> | Select 3°C mode of the Selectable Zone.
+                      You can now have extra storage space for drinks and food.
+                    </p>
+                    <p style="color:#c00000"><b>Digital Temperature Adjustment</b></p>
+                    <p>Freezer and fridge control in one place.</p>
+                    <button class="btn btn-danger me-2">Option 1</button>
+                    <button class="btn btn-danger">Option 2</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Washing Machine Accordion -->
+          <div
+            id="accordion-washingMachine"
+            class="col-lg-4 col-md-12 col-sm-12"
+          >
+            <div class="accordion" id="accordionWashingMachine">
+              <!-- Accordion 1 -->
+              <div class="accordion-item" id="">
+                <h2 class="accordion-header" id="headingWashingMachineOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#washingMachineCollapseOne"
+                    aria-expanded="true"
+                    aria-controls="washingMachineCollapseOne"
+                  >
+                    Linear Series
+                  </button>
+                </h2>
+                <div
+                  id="washingMachineCollapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="washingMachineHeadingOne"
+                  data-bs-parent="#accordionWashingMachine"
+                >
+                  <div class="accordion-body">
+                    <p style="color: #c00000;"><b>Auto Dosing</b></p>
+                    <p>Smart, Sustainable Convenience</p>
+                    <p>
+                      Liquid detergent and softener is automatically dispensed
+                      for optimal washing.
+                    </p>
+                    <p>
+                      Maintain hygiene with the detachable tank, enabling
+                      hassle-free maintenance.
+                    </p>
+                    <p style="color: #c00000;"><b>Intelligent Wash</b></p>
+                    <p>Auto Programme with 8 Senses</p>
+                    <p>
+                      Put the hassles of laundry behind you with Intelligent
+                      Wash. Advanced sensor technology automatically selects the
+                      ideal programme for you by detecting fabrics and detergent
+                      levels, ensuring that each load is optimised to deliver
+                      outstanding results with every wash.
+                    </p>
+                    <p style="color: #c00000;"><b>Wind Iron Technology</b></p>
+                    <p>
+                      The Jet Fan Drying System generates a powerful airflow of
+                      270 km/h* inside the drum, resulting in perfectly dried
+                      and wrinkle-free clothes.
+                    </p>
+                    <button class="btn btn-danger me-2">Option 1</button>
+                    <button class="btn btn-danger">Option 2</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accordion 2 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="washingMachineHeadingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#washingMachineCollapseTwo"
+                    aria-expanded="false"
+                    aria-controls="washingMachineCollapseTwo"
+                  >
+                    Top Loading - Dual Waterfall Series
+                  </button>
+                </h2>
+                <div
+                  id="washingMachineCollapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="washingMachineHeadingTwo"
+                  data-bs-parent="#accordionWashingMachine"
+                >
+                  <div class="accordion-body">
+                    <p style="color: #c00000;"><b>Dual Waterfall</b></p>
+                    <p>with Efficiency Interior Impeller Design</p>
+                    <p>
+                      For ultimate clothing care and optimal washing efficiency,
+                      the interior impeller creates strong water movement help
+                      reduce washing time, decrease water usage and enhance
+                      energy efficiency.
+                    </p>
+                    <p style="color: #c00000;"><b>Hand Wash Mode</b></p>
+                    <p>
+                      With the convenient built-in water faucet for hand
+                      washing*, you can pretreat stained or soiled clothing,
+                      ensuring a careful and thorough approach to your delicate
+                      items, while preventing them from mingling directly with
+                      other garments during laundry.
+                    </p>
+                    <p style="color: #c00000;"><b>Programmes</b></p>
+                    <p><span style="color: #c00000;">Speed Wash Programme</span> | Wash up in 20 minutes.</p>
+                    <p>
+                      <span style="color: #c00000;">Half Load Programme</span> | Washes up in approximately 29
+                      minutes.
+                    </p>
+                    <p>
+                      <span style="color: #c00000;">Stain Programme</span> | For everyday stains and heavily soiled
+                      items.
+                    </p>
+                    <p>
+                      <span style="color: #c00000;">Auto Self Clean</span> | Automatically cleanse both interior and
+                      exterior tubs after each cycle.
+                    </p>
+                    <p style="color: #c00000;"><b>Air Jet Dry</b></p>
+                    <p>
+                      Enjoy shorter drying times with the Air Jet Dry feature.
+                    </p>
+                    <button class="btn btn-danger me-2">Option 1</button>
+                    <button class="btn btn-danger">Option 2</button>
+                  </div>
+                </div>
+              </div>
+
+            
+            </div>
+          </div>
+
+          <!--Vcuum Cleaner Accordion-->
+          <div
+            id="accordion-vacuumCleaner"
+            class="col-lg-4 col-md-12 col-sm-12"
+          >
+            <div class="accordion" id="accordionVacuumCleaner">
+              <!-- Accordion 1 -->
+              <div class="accordion-item" id="accordion-refrigerator-1">
+                <h2 class="accordion-header" id="vacuumCleanerHeadingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#vacuumCleanerCollapseOne"
+                    aria-expanded="true"
+                    aria-controls="vacuumCleanerCollapseOne"
+                  >
+                  Cordless Stick
+                  </button>
+                </h2>
+                <div
+                  id="vacuumCleanerCollapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="vacuumCleanerHeadingOne"
+                  data-bs-parent="#accordionVacuumCleaner"
+                >
+                  <div class="accordion-body">
+                    <p  style="color: #c00000;"><b>Lightweight Design</b></p>
+                    <p>Lightweight, Powerful & Versatile</p>
+                    <p>Hitachi cordless stick vacuum cleaners are compact, lightweight, and expertly designed for effortless deep cleaning. Turn tedious chores into a breeze.</p>
+
+                    <p style="color: #c00000;"><b>High Suction Power</b></p>
+                    <p>High-Powered Made in Japan Motor</p>
+                    <p>The 3D fan is purposefully designed to deliver up to 170 AW* of powerful cyclone suction for deeper and more thorough cleaning of your home.</p>
+
+                    <p style="color: #c00000;"><b>Green LED Technology</b></p>
+                    <p>Illuminating the Invisible</p>
+                    <p>Hitachi vacuum cleaners use Green LED technology with 7 LED lights to intelligently reveal dust regardless of lighting, ensuring impeccable cleanliness in your home. </p>
+                   
+                    <button class="btn btn-danger me-2">Option 1</button>
+                    <button class="btn btn-danger">Option 2</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Accordion 2 -->
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="vacuumCleanerHeadingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#vacuumCleanerCollapseTwo"
+                    aria-expanded="false"
+                    aria-controls="vacuumCleanerCollapseTwo"
+                  >
+                  Robot Vacuum Cleaners
+                  </button>
+                </h2>
+                <div
+                  id="vacuumCleanerCollapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="vacuumCleanerHeadingTwo"
+                  data-bs-parent="#accordionVacuumCleaner"
+                >
+                  <div class="accordion-body">
+                    <p style="color: #c00000;"><b>LDS Navigation</b></p>
+                    <p>With little effort on your part, the robot vacuum remembers 5 unique and multi-level floor maps of your home using integrated laser sensor technology.</p>
+                   
+                    <p style="color: #c00000;"><b>Scaling to New Heights</b></p>
+                    <p>The advanced robot vacuum smartly senses changes in floor level and can overcome heights and obstacles of up to 2 cm.</p>
+
+                    <p style="color: #c00000;"><b>High Engine Suction Power Up to 2700 Pa</b></p>
+
+                    <p>A thorough clean is made possible with up to 2700 Pa of strong suction power, easily capable of collecting fine dust particles and pet hairs from floors and carpets. With four suction modes available, you can choose your desired level of suction power.</p>
+                    
+                    <button class="btn btn-danger me-2">Option 1</button>
+                    <button class="btn btn-danger">Option 2</button>
+                  </div>
+                </div>
+              </div>
+
+              
+            </div>
+          </div>
+
+          <!-- Rice Cooker Accordion -->
+          <div id="accordion-riceCooker" class="col-lg-4 col-md-12 col-sm-12">
+            <div class="accordion" id="accordionExample">
+              <!-- Accordion 1 -->
+              <div class="accordion-item" id="accordion-refrigerator-1">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Microcomputer
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <p style="color:#c00000"><b>Metallic Look Touch Control</b></p>
+                    <p>
+                      A large LED touch control hidden under the metallic look
+                      surface for meeting your culinary needs.
+                    </p>
+
+                    <p style="color:#c00000"><b>3D Heating System</b></p>
+                    <p>
+                      Powerful heat circulation from top, side, and bottom to
+                      cook rice and keeps warm up to 36 hours. Offering the
+                      convenience of food staying warm for an extended period.
+                    </p>
+
+                    <p style="color:#c00000"><b>Lava Flow Design</b></p>
+                    <p>
+                      Designed to enhance heat transfer throughout the pot.
+                      Offering consistently cooked rice.
+                    </p>
+
+                    <p style="color:#c00000"><b>Ceramic Coating & 3 mm Inner Pot with 5 Layers</b></p>
+                    <p>
+                      Provides efficient heat distribution throughout the pot
+                      resulting in evenly cooked rice. It makes cleaning
+                      effortless and enhances durability with scratch-resistant.
+                    </p>
+
+                    <p style="color:#c00000"><b>16 Cooking Modes</b></p>
+                    <p>
+                      The range of modes also includes cake, healthy steam, slow
+                      and fast cook modes.
+                    </p>
+                    <p>Now you have an even bigger choice of ways to cook.</p>
+                    <p>Microcomputer</p>
+                    <p>LED Touch Control</p>
+                    <p>
+                      A large LED touch control hidden under the metallic look
+                      surface for meeting your culinary needs.
+                    </p>
+                    <p>Lava Flow Design</p>
+                    <p>
+                      Designed to enhance heat transfer throughout the pot.
+                      Offering consistently cooked rice.
+                    </p>
+                    <p>Non-Stick Coating & 2 mm Inner Pot with 5 Layers</p>
+                    <p>
+                      Provides efficient heat distribution throughout the pot
+                      resulting in evenly cooked rice. It makes cleaning
+                      effortless and enhances durability with scratch-resistant.
+                    </p>
+
+                    <p>14 Cooking Modes</p>
+                    <p>
+                      The range of modes also includes cake, healthy steam, slow
+                      and fast cook modes.
+                    </p>
+                    <p>Now you have an even bigger choice of ways to cook.</p>
+                    <button class="btn btn-danger me-2">Option 1</button>
+                    <button class="btn btn-danger">Option 2</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dishwasher Accordion -->
+          <div id="accordion-dishwasher" class="col-lg-4 col-md-12 col-sm-12">
+            <div class="accordion" id="accordionExample">
+              <!-- Accordion 1 -->
+              <div class="accordion-item" id="accordion-refrigerator-1">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    Freestanding
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    <p style="color:#c00000"><b>Surround Wash</b></p>
+                    <p>
+                      Surround technology ensures that no corner of your machine
+                      is left uncleaned, with powerful spray arms reaching every
+                      spot - including those tricky corners.
+                    </p>
+                    <p style="color:#c00000"><b>Steam Shine</b></p>
+                    <p>
+                      Following the dishwashing cycle, an extended heat
+                      application of an extra 10 minutes drying function for
+                      dishes.
+                    </p>
+                    <p style="color:#c00000"><b>Rapid 58</b></p>
+                    <p>
+                      If you're short on time, Rapid 58 is the ideal programme
+                      for quick cleaning and drying performance in just 58
+                      minutes.
+                    </p>
+                    <p style="color:#c00000"><b>Intense Wash</b></p>
+                    <p>
+                      Bottles and other items up to 30 cm in depth can be washed
+                      in the specialized zone located on the bottom rack.
+                    </p>
+                    <p style="color:#c00000"><b>Auto Open Door with Automatic Self Dry</b></p>
+                    <p>
+                      During drying cycle, the door opens by about 10 cm,
+                      allowing fresh air circulation to remove moist hot air
+                      from the inside of the dishwasher. This natural airflow
+                      boosts drying efficiency.
+                    </p>
+                    <p style="color:#c00000"><b>Recycled PET Chasis</b></p>
+                    <p>
+                      Hitachi dishwashers have an eco-friendly chassis made from
+                      recycled plastic bottles, which not only protects your
+                      dishes but also the environment.
+                    </p>
+                    <button class="btn btn-danger me-2">Option 1</button>
+                    <button class="btn btn-danger">Option 2</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Question UI: Script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="question.js"></script>
+
+    <!--JavaScript-->
+    <script src="index.js"></script>
+  </body>
+</html>
