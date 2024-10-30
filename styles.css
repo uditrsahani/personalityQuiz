@@ -281,11 +281,19 @@ p {
 }
 
 label:hover {
-  background-color: #cab5b4;
-  
+  /* background-color: #a2201c; */
+  border: 1px #a2201c solid;
 }
 
 .accordion-body {
   max-height: 200px; /* Set the maximum height */
   overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.radio-icon:checked + .custom-radio::before {
+  background-color: #a2201c; /* Set this color for the inner circle */
+}
+
+input[type="radio"]:checked{
+  background-color: #a2201c;
 }

@@ -25,11 +25,17 @@ function firstSection(){
     element.style.display = "block";
   });
 
+  document.getElementById('section2MobileMenu').style.display = 'block';
+  document.getElementById('section2MobileMenu').style.visibility = 'visible';
 
 }
 
 //second Section
 function secondSection(){
+
+  document.getElementById('section1MobileMenu').style.display = 'none';
+  
+
   document.querySelectorAll('.hideQuestionUI').forEach(element => {
     element.style.display = "block";
     document.getElementById('bodyId').style.backgroundImage = "url('/questionImages/q0.jpg')";

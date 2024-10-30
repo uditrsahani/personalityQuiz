@@ -153,3 +153,26 @@ body {
   /* border-radius: 10px; */
 }
 
+.radio-icon{
+  transform: scale(1.5); /* Adjust the scale as needed */
+  margin: 5px;
+}
+
+.radio-icon2{
+  transform: scale(1.5); /* Adjust the scale as needed */
+  margin: 5px;
+}
+
+.radio-icon3{
+  transform: scale(1.5); /* Adjust the scale as needed */
+  margin: 5px;
+}
+
+.radio-icon4{
+  transform: scale(1.5); /* Adjust the scale as needed */
+  margin: 5px;
+}
+
+.radio-icon:checked {
+  color: #a2201c;
+}

@@ -760,86 +760,8 @@ let riceCooker = 0;
 let resultTitle = document.getElementById("resultTitle");
 let questionImage = "";
 
-
-// Select the radio input and its label
-const radioButton = document.querySelector(".radio-icon");
-const customRadioLabel = document.querySelector(".custom-radio");
-
-// Set the radio button to checked on hover
-customRadioLabel.addEventListener("mouseenter", () => {
-  radioButton.checked = true;
-});
-
-// Optional: Uncheck the radio button on mouse leave
-customRadioLabel.addEventListener("mouseleave", () => {
-  radioButton.checked = false;
-});
-
-//icon 2
-// Select the radio input and its label
-const radioButton2 = document.querySelector(".radio-icon2");
-const customRadioLabel2 = document.querySelector(".custom-radio2");
-
-// Set the radio button to checked on hover
-customRadioLabel2.addEventListener("mouseenter", () => {
-  radioButton2.checked = true;
-});
-
-// Optional: Uncheck the radio button on mouse leave
-customRadioLabel2.addEventListener("mouseleave", () => {
-  radioButton2.checked = false;
-});
-
-//icon3
-// Select the radio input and its label
-const radioButton3 = document.querySelector(".radio-icon3");
-const customRadioLabel3 = document.querySelector(".custom-radio3");
-
-// Set the radio button to checked on hover
-customRadioLabel3.addEventListener("mouseenter", () => {
-  radioButton3.checked = true;
-});
-
-// Optional: Uncheck the radio button on mouse leave
-customRadioLabel3.addEventListener("mouseleave", () => {
-  radioButton3.checked = false;
-});
-
-//icon4
-// Select the radio input and its label
-const radioButton4 = document.querySelector(".radio-icon4");
-const customRadioLabel4 = document.querySelector(".custom-radio4");
-
-// Set the radio button to checked on hover
-customRadioLabel4.addEventListener("mouseenter", () => {
-  radioButton4.checked = true;
-});
-
-// Optional: Uncheck the radio button on mouse leave
-customRadioLabel4.addEventListener("mouseleave", () => {
-  radioButton4.checked = false;
-});
-
 // //next question
 function nextQuestion(event) {
-  
-  if (event.target.tagName === 'INPUT') {
-    questionNumber = questionNumber;
-    return;
-  }
-  event.stopPropagation();
-  // alert(questionNumber)
-
-  // Select all radio inputs and uncheck them
- setTimeout(()=>{
-  const radios = document.querySelectorAll('input[type="radio"]');
-  radios.forEach(radio => {
-      radio.checked = false;
-  });
- }, 300)
-
- 
-
   try {
     var labelText = event.target.textContent.trim();
     console.log(labelText);
@@ -886,81 +808,27 @@ function nextQuestion(event) {
       element.style.display = "none";
     });
   }
+  document.getElementById("questionText").innerText =
+    questions[questionNumber]["question"];
+  document.getElementById("option1Text").innerText =
+    questions[questionNumber]["answers"][0]["text1"];
 
-  //question replacement
-  var questionTextParent = document.getElementById("questionText");
-  questionTextParent.innerText = '';
-  var questionText = questions[questionNumber]["question"];
-  questionTextParent.innerText = questionText;
+  // //input option 1
+  // const radioInput1 = document.createElement("input");
+  // // Set the attributes for the radio input
+  // radioInput1.type = "radio";
+  // radioInput1.className = "radio-icon";
+  // //parent
+  // const option1Parent = document.getElementById('option1Text');
+  // option1Parent.appendChild(radioInput1)
 
-  //option 1 replacement
-  var option1Parent = document.getElementById("option1Text");
-  option1Parent.innerText = "";
-  var option1Text = questions[questionNumber]["answers"][0]["text1"];
-  var option1Textnode = document.createTextNode(option1Text);
 
-  //input option 1
-  const radioInput1 = document.createElement("input");
-  // Set the attributes for the radio input
-  radioInput1.type = "radio";
-  radioInput1.className = "radio-icon";
-  //parent
-  option1Parent = document.getElementById("option1Text");
-  option1Parent.appendChild(radioInput1);
-
-  option1Parent.appendChild(option1Textnode);
-
-  //option 2 replacement
-  var option2Parent = document.getElementById("option2Text");
-  option2Parent.innerText = "";
-  var option2Text = questions[questionNumber]["answers"][1]["text2"];
-  var option2Textnode = document.createTextNode(option2Text);
-
-  //input option 2
-  const radioInput2 = document.createElement("input");
-  // Set the attributes for the radio input
-  radioInput2.type = "radio";
-  radioInput2.className = "radio-icon2";
-  //parent
-  option2Parent = document.getElementById("option2Text");
-  option2Parent.appendChild(radioInput2);
-
-  option2Parent.appendChild(option2Textnode);
-
-  //option 3 replacement
-  var option3Parent = document.getElementById("option3Text");
-  option3Parent.innerText = "";
-  var option3Text = questions[questionNumber]["answers"][2]["text3"];
-  var option3Textnode = document.createTextNode(option3Text);
-
-  //input option 3
-  const radioInput3 = document.createElement("input");
-  // Set the attributes for the radio input
-  radioInput3.type = "radio";
-  radioInput3.className = "radio-icon3";
-  //parent
-  option3Parent = document.getElementById("option3Text");
-  option3Parent.appendChild(radioInput3);
-
-  option3Parent.appendChild(option3Textnode);
-
-  //option 4 replacement
-  var option4Parent = document.getElementById("option4Text");
-  option4Parent.innerText = "";
-  var option4Text = questions[questionNumber]["answers"][3]["text4"];
-  var option4Textnode = document.createTextNode(option4Text);
-
-  //input option 4
-  const radioInput4 = document.createElement("input");
-  // Set the attributes for the radio input
-  radioInput4.type = "radio";
-  radioInput4.className = "radio-icon4";
-  //parent
-  option4Parent = document.getElementById("option4Text");
-  option4Parent.appendChild(radioInput4);
-
-  option4Parent.appendChild(option4Textnode);
-
+  document.getElementById("option2Text").innerText =
+    questions[questionNumber]["answers"][1]["text2"];
+  document.getElementById("option3Text").innerText =
+    questions[questionNumber]["answers"][2]["text3"];
+  document.getElementById("option4Text").innerHTML =
+    questions[questionNumber]["answers"][3]["text4"];
   document.getElementById("pagination").innerText =
     questionNumber + 1 + " / 10";
 
@@ -1259,3 +1127,62 @@ function scoreCounting() {
   if (questionNumber) {
   }
 }
+
+// Select the radio input and its label
+const radioButton = document.querySelector(".radio-icon");
+const customRadioLabel = document.querySelector(".custom-radio");
+
+// Set the radio button to checked on hover
+customRadioLabel.addEventListener("mouseenter", () => {
+  radioButton.checked = true;
+});
+
+// Optional: Uncheck the radio button on mouse leave
+customRadioLabel.addEventListener("mouseleave", () => {
+  radioButton.checked = false;
+});
+
+//icon 2
+// Select the radio input and its label
+const radioButton2 = document.querySelector(".radio-icon2");
+const customRadioLabel2 = document.querySelector(".custom-radio2");
+
+// Set the radio button to checked on hover
+customRadioLabel2.addEventListener("mouseenter", () => {
+  radioButton2.checked = true;
+});
+
+// Optional: Uncheck the radio button on mouse leave
+customRadioLabel2.addEventListener("mouseleave", () => {
+  radioButton2.checked = false;
+});
+
+//icon3
+// Select the radio input and its label
+const radioButton3 = document.querySelector(".radio-icon3");
+const customRadioLabel3 = document.querySelector(".custom-radio3");
+
+// Set the radio button to checked on hover
+customRadioLabel3.addEventListener("mouseenter", () => {
+  radioButton3.checked = true;
+});
+
+// Optional: Uncheck the radio button on mouse leave
+customRadioLabel3.addEventListener("mouseleave", () => {
+  radioButton3.checked = false;
+});
+
+//icon4
+// Select the radio input and its label
+const radioButton4 = document.querySelector(".radio-icon4");
+const customRadioLabel4 = document.querySelector(".custom-radio4");
+
+// Set the radio button to checked on hover
+customRadioLabel4.addEventListener("mouseenter", () => {
+  radioButton4.checked = true;
+});
+
+// Optional: Uncheck the radio button on mouse leave
+customRadioLabel4.addEventListener("mouseleave", () => {
+  radioButton4.checked = false;
+});
