@@ -102,6 +102,17 @@ html {
   color: #333;
 }
 
-#result-container{
-  margin-top: 13rem !important
+@media screen and (max-width: 440px) {
+  .red-bar-section-2{
+    top: 2.45rem!important;
+  }
+
+  #resultTitle{
+    font-size: 1.5rem;
+  }
 }
+
+.container{
+  margin-top: 12rem!important;
+}
+

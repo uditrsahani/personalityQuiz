@@ -48,3 +48,6 @@ document.querySelectorAll('.hideSecondSection').forEach(element => {
 }
 
 //Question section
+
+// Select the button by ID
+

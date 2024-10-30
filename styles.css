@@ -80,7 +80,11 @@ p {
 /* Media Queries for Responsive Design */
 @media screen and (max-width: 1300px) {
   .red-bar {
-    width: 35%;
+    width: 32%;
+  }
+
+  .lef-bar {
+    width: 32%;
   }
 }
 
@@ -206,7 +210,7 @@ p {
   background-color: #a2201c;
   position: absolute;
   right: 0;
-  width: 40%;
+  width: 38%;
 }
 
 .left-bar{
@@ -214,7 +218,7 @@ p {
   background-color: #a2201c;
   position: absolute;
   left: 0;
-  width: 40%;
+  width: 38%;
 }
 
 .section-2-title{
@@ -228,31 +232,31 @@ p {
 
 @media screen and (max-width: 1200px) {
   .right-bar{
-    width: 30%;
+    width: 27%;
   }
 
   .left-bar{
-    width: 30%;
+    width: 27%;
   }
 }
 
 @media screen and (max-width: 850px) {
   .right-bar{
-    width: 30%;
+    width: 25%;
   }
 
   .left-bar{
-    width: 30%;
+    width: 25%;
   }
 }
 
 @media screen and (max-width: 650px) {
   .right-bar{
-    width: 25%;
+    width: 23%;
   }
 
   .left-bar{
-    width: 25%;
+    width: 23%;
   }
 }
 
@@ -297,3 +301,32 @@ label:hover {
 input[type="radio"]:checked{
   background-color: #a2201c;
 }
+
+@media screen and (max-width: 700px) {
+  #resultTitle{
+    font-size: 1.75rem;
+  }
+
+  .lef-bar{
+    top: 2.69rem;
+  }
+
+  .right-bar{
+    top: 2.69rem!important;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .container{
+    margin-top: 6rem!important;
+  }
+}
+
+#questionContainer{
+  margin-top: 0rem!important;
+}
+
+
+
+/*Animation Swipe Up*/
+

@@ -1,3 +1,19 @@
+// Function to check screen width and adjust margin-top
+function adjustMarginTop() {
+  const resultContainer = document.getElementById('result-container');
+  if (window.innerWidth <= 440) {
+      resultContainer.style.setProperty('margin-top', '7rem', 'important'); // Override with !important
+  } else {
+      resultContainer.style.setProperty('margin-top', '', 'important'); // Reset to default when above 440px
+  }
+}
+
+// Event listener for window resize
+window.addEventListener('resize', adjustMarginTop);
+
+// Initial check on page load
+adjustMarginTop();
+
 function selectedOption() {
   document.getElementsByClassName(".option1").style.backgroundColor = "#cab5b4";
   console.log("clicked");
@@ -827,7 +843,7 @@ function nextQuestion(event) {
     questionNumber = questionNumber;
     return;
   }
-  event.stopPropagation();
+  // event.stopPropagation();
   // alert(questionNumber)
 
   // Select all radio inputs and uncheck them
@@ -1246,7 +1262,7 @@ function backButton() {
     alert("This is the first question");
   } else {
     questionNumber = questionNumber - 2;
-    nextQuestion();
+    nextQuestion(event);
   }
 }
 
