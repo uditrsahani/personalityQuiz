@@ -329,3 +329,53 @@ input[type="radio"]:checked{
 
 
 /*Animation Swipe Up*/
+
+
+/*Result box size for chrome*/
+
+/* @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) { 
+ 
+  .scrollable-div {
+      max-height: 450px!important;
+  }
+
+  #accordion-washingMachine{
+    max-height: 450px!important;
+  }
+
+  #accordion-refrigerator{
+    max-height: 450px!important;
+  }
+
+  #accordion-vacuumCleaner{
+    max-height: 450px!important;
+  }
+
+  #accordion-riceCooker{
+    max-height: 450px!important;
+  }
+
+  #accordion-dishwasher{
+    max-height: 450px!important;
+  }
+  .accordion-body{
+    max-height: 350px!important;
+  }
+} */
+
+
+.radio-icon{
+  accent-color: #c00000;
+}
+
+.radio-icon2{
+  accent-color: #c00000;
+}
+
+.radio-icon3{
+  accent-color: #c00000;
+}
+
+.radio-icon4{
+  accent-color: #c00000;
+}

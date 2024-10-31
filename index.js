@@ -1,3 +1,9 @@
+
+
+// Add an event listener to handle window resize
+window.addEventListener("resize", applyChromeStyles);
+
+
 function firstSection(){
 
   const contentWrappers = document.querySelectorAll('.content-wrapper');
