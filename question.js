@@ -836,6 +836,8 @@ customRadioLabel4.addEventListener("mouseleave", () => {
   radioButton4.checked = false;
 });
 
+
+
 // //next question
 function nextQuestion(event) {
   
@@ -843,6 +845,13 @@ function nextQuestion(event) {
     questionNumber = questionNumber;
     return;
   }
+
+  function animatePageUp() {
+    document.body.classList.add('animate-move-up');
+  }
+
+  
+  
   // event.stopPropagation();
   // alert(questionNumber)
 

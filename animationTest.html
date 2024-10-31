@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Transition Animation</title>
+  <style>
+    /* Basic styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif; /* Optional: better font */
+      overflow: hidden; /* Prevent scrollbar during animation */
+      height: 100vh; /* Ensure full height for the animation */
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center content */
+      flex-direction: column; /* Stack content vertically */
+    }
+
+    /* Wrapper for current content */
+    .content-wrapper {
+      position: absolute; /* Overlay the content */
+      transition: transform 1s ease, opacity 1s ease; /* Smooth transitions */
+      z-index: 1; /* Ensure it's on top */
+    }
+
+    /* New content wrapper */
+    .new-content-wrapper {
+      position: absolute; /* Overlay the new content */
+      transform: translateY(100px); /* Start from below */
+      opacity: 0; /* Start invisible */
+      transition: transform 1s ease, opacity 1s ease; /* Smooth transitions */
+      z-index: 0; /* Behind the current content */
+    }
+
+    /* Button styles */
+    #nextButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50; /* Green background */
+      color: white; /* White text */
+      border: none; /* Remove default border */
+      border-radius: 5px; /* Rounded corners */
+      cursor: pointer; /* Pointer cursor on hover */
+      margin-top: 20px; /* Space above the button */
+      position: relative; /* Positioning for the button */
+      z-index: 2; /* Ensure it's above everything else */
+    }
+
+    #nextButton:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Wrapper div for current content -->
+  <div class="content-wrapper">
+    <h1>Current Content</h1>
+    <p>This content will swipe up and disappear when you click the button below.</p>
+    
+    <!-- Button to trigger animation -->
+    <button id="nextButton" onclick="animatePage()">Next</button>
+  </div>
+
+  <!-- Wrapper div for new content -->
+  <div class="new-content-wrapper">
+    <h1>New Content</h1>
+    <p>This is the new content that appears from the bottom.</p>
+  </div>
+
+  <script>
+    // Function to animate the page content
+    function animatePage() {
+      const contentWrappers = document.querySelectorAll('.content-wrapper');
+      const newContentWrappers = document.querySelectorAll('.new-content-wrapper');
+
+      // Animate the current content to swipe up and disappear
+      contentWrappers.forEach(wrapper => {
+        wrapper.style.transform = 'translateY(-100px)'; // Move up
+        wrapper.style.opacity = '0'; // Set to invisible
+      });
+
+      // Trigger reappearance of new content after a delay
+      setTimeout(() => {
+        newContentWrappers.forEach(newWrapper => {
+          // Move the new content into view
+          newWrapper.style.transform = 'translateY(0)'; // Move to original position
+          newWrapper.style.opacity = '1'; // Make it visible
+        });
+      }, 1000); // Match the duration of the transition
+    }
+
+    // To make the new content initially hidden
+    window.onload = () => {
+      const newContentWrappers = document.querySelectorAll('.new-content-wrapper');
+      newContentWrappers.forEach(newWrapper => {
+        newWrapper.style.transform = 'translateY(100px)';
+        newWrapper.style.opacity = '0';
+      });
+    };
+  </script>
+</body>
+</html>

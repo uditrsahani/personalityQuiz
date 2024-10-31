@@ -1,4 +1,23 @@
 function firstSection(){
+
+  const contentWrappers = document.querySelectorAll('.content-wrapper');
+  const newContentWrappers = document.querySelectorAll('.new-content-wrapper');
+
+  // Animate the current content to swipe up and disappear
+  contentWrappers.forEach(wrapper => {
+    wrapper.style.transform = 'translateY(-100px)'; // Move up
+    wrapper.style.opacity = '0'; // Set to invisible
+  });
+
+  // Trigger reappearance of new content after a delay
+  setTimeout(() => {
+    newContentWrappers.forEach(newWrapper => {
+      // Move the new content into view
+      newWrapper.style.transform = 'translateY(0)'; // Move to original position
+      newWrapper.style.opacity = '1'; // Make it visible
+    });
+  }, 1000); // Match the duration of the transition
+  
   //buttons
   document.getElementById('nextBtn').style.display = 'none';
   document.getElementById('startBtn').style.display = 'block';
